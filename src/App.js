@@ -1,4 +1,8 @@
 import React from 'react';
+import TodoList from './components/TodoList';
+import TodoForm from './components/TodoForm';
+
+
 
 class App extends React.Component {
   constructor() {
@@ -28,21 +32,13 @@ class App extends React.Component {
   // this component is going to take care of state, and any change handlers you need to work with your state
   render() {
     const { todos } = this.state;
+
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <ul>
-          {
-            todos.map(todo=> {
-              return (<li>{todo.task} { todo.completed?<span>- completed</span> : <span></span> }</li>)
-            })
-          }
-        </ul>
+       <TodoList todos={todos}/>
 
-        <form>
-          <input/>
-          <button>Add</button>
-        </form>
+        <TodoForm />
 
         <button>Clear</button>
       </div>
